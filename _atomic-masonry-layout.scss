@@ -1,0 +1,27 @@
+// https://github.com/twbs/bootstrap/blob/v4-dev/scss/_card.scss
+
+.masonry {
+  @include breakpoint(medium) {
+    column-count: 2;
+    column-gap: 1rem;
+
+    &, * {
+      break-inside: avoid; // Don't let them vertically span multiple columns
+    }
+  }
+  @include breakpoint(large) {
+    column-count: 3;
+  }
+
+  > * {
+    padding-bottom: 1rem; // Margin doesn't work well in Safari :(
+  }
+}
+
+// Firefox hack by recipe from https://css-tricks.com/snippets/css/css-hacks-targeting-firefox/
+@-moz-document url-prefix() {
+  .masonry > * {
+    display: inline-block;
+    width: 100%;
+  }
+}

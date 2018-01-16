@@ -1,0 +1,5 @@
+<div class="masonry {{ items|length <= 3 ? 'mini' }}">
+  {% for item in items %}
+  <div>{{ item|raw }}</div>
+  {% endfor %}
+</div>
